@@ -2,7 +2,15 @@
 
 Scripts de scraping dos dados que serão usados no Gestão BR
 
+## Conteúdo
 
+- [Preparando o Ambiente de Desenvolvimento](#ambiente)
+  - [Docker](#docker)
+- [Executando](#executando)
+- [Marmeleiro](#marmeleiro)
+- [Metodologia](#metodologia)
+
+<a name="ambiente"></a>
 ## Preparando o Ambiente de Desenvolvimento
 
 Esse projeto está sendo desenvolvido usando Python 3.5. Veja instruções de
@@ -30,16 +38,32 @@ Além de todas as dependências você precisará do [driver do Firefox para o
 Selenium](https://github.com/mozilla/geckodriver/releases) (acesse o site e
 veja as instruções de instalação para seu sistema).
 
+<a name="ambiente"></a>
+## Docker
 
+Usando [Docker](https://docs.docker.com/engine/installation/) você pode isolar o contexto do `gestao-br` em um container, atualmente não publicamos a image no [Docker Hub](https://hub.docker.com/), então o build inicial da imagem é **obrigatório**:
+
+```bash
+docker build -t gestao-br-scrapper .
+```
+
+Se tudo der certo você está pronto para lançar o container:
+
+```bash
+docker docker run -it --name gestao-br gestao-br-scrapper
+```
+
+<a name="executando"></a>
 ## Executando o Scraper
 
 Para rodar os scripts você precisará estar em um terminal com o
 [virtualenv](https://pypi.python.org/pypi/virtualenv) ativado - basta executar
 os comandos abaixo a cada nova sessão do seu terminal:
 
-    cd gestao-br-spiders
+    cd gestao-br-scrapers
     source .env/bin/activate
 
+<a name="Marmeleiro"></a>
 ### Prefeitura de Marmeleiro
 
 O script `cli.py` é uma interface de linha de comando que:
@@ -69,7 +93,7 @@ Exemplo:
 
     python cli.py 2017 "FUNDO MUNICIPAL DE SAÚDE"
 
-
+<a name="metodologia"></a>
 ## Metodologia de Trabalho
 
 - Use a metodologia do [git
