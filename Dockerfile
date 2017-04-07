@@ -14,5 +14,3 @@ RUN pip install virtualenv && \
     virtualenv .env && \
     source .env/bin/activate && \
     pip install -r ./requirements/development.txt
-
-CMD ['source .env/bin/activate']
