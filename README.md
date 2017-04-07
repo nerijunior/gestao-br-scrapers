@@ -43,15 +43,12 @@ veja as instruções de instalação para seu sistema).
 
 Usando [Docker](https://docs.docker.com/engine/installation/) você pode isolar o contexto do `gestao-br` em um container, atualmente não publicamos a image no [Docker Hub](https://hub.docker.com/), então o build inicial da imagem é **obrigatório**:
 
-```bash
-docker build -t gestao-br-scrapper .
-```
+    git clone https://github.com/CodeForCuritiba/gestao-br-scrapers.git
+    docker build -t gestao-br-scrapper .
 
 Se tudo der certo você está pronto para lançar o container:
 
-```bash
-docker docker run -it --name gestao-br gestao-br-scrapper
-```
+    docker run -it --name gestao-br gestao-br-scrapper
 
 <a name="executando"></a>
 ## Executando o Scraper
